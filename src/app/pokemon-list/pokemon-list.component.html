@@ -1,0 +1,32 @@
+<div class="header">
+    <img src="../../assets/img/pokeball.png" id="pokeball">
+    <a href="#" class="logo">POKEDEX</a>
+    <div class="header-right">
+        <input type="text" class="form-control" placeholder="Search ... " name="filterPost" [(ngModel)]="filterPost">
+        <a class="active" href="#home">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </div>
+</div>
+<div class="pokemon-grid">
+    <div class="box" *ngFor="let pokemon of pokemons | filtroPokedex:filterPost">
+        <img [src]="pokemon.sprites.front_default" alt="Pokemon">
+        <h3>{{ pokemon.name }}</h3>
+        <p>
+            <b>Type: </b> {{ pokemon.types[0].type.name }}
+        </p>
+        <p>
+            <b>Height: </b> {{ pokemon.height }}
+        </p>
+        <p>
+            <b>Healt: </b> {{ pokemon.stats[0].base_stat }}
+        </p>
+        <p>
+            <b>Attack Power: </b> {{ pokemon.stats[1].base_stat }}
+        </p>
+        <!-- <p>
+            <button mat-raised-button (click)="openBottomSheet()">Open file</button>
+        </p> -->
+        <!-- <p><a href="#" class="tip">imagen<span>cuadro de varios caracteres</span></a></p> -->
+    </div>
+</div>
