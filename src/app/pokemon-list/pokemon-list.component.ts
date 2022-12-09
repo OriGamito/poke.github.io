@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
 
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { BottonSheetComponent } from '../components/botton-sheet/botton-sheet.component';
-
 @Component({
   selector: 'app-pokemon-list',
   templateUrl: './pokemon-list.component.html',
@@ -13,22 +10,28 @@ export class PokemonListComponent implements OnInit {
 
   pokemons: any[] = [];
   filterPost = '';
-  constructor(private dataService: DataService, private bottomSheet: MatBottomSheet) { }
+  page = 0;
+  totalPokemons: number = 0;
 
-  openBottomSheet(): void {
-    this.bottomSheet.open(BottonSheetComponent);
-  }
+  constructor(private dataService: DataService) { }
+
+ 
 
 
   ngOnInit(): void {
-
-    this.dataService.getPokemons()
+    this.getPokemons();
+  }
+ 
+  getPokemons() {
+    this.dataService.getPokemons(500, this.page + 0)
       .subscribe((response: any) => {
+        this.totalPokemons = response.count;
+
         response.results.forEach((result: { name: String; }) => {
           this.dataService.getMasData(result.name)
             .subscribe((uniqResponse: any) => {
               this.pokemons.push(uniqResponse);
-              console.log(this.pokemons);
+              //console.log(this.pokemons);
             });
         });
       });

@@ -12,9 +12,10 @@ import { HeaderComponent } from './header/header.component';
 
 import {MaterialModule} from '../app/material/material.module';
 import {MatNativeDateModule} from '@angular/material/core';
-import { BottonSheetComponent } from './components/botton-sheet/botton-sheet.component';
 import { FiltroPokedexPipe } from './filtro-pokedex.pipe';
 import { FormsModule } from '@angular/forms';
+
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   
@@ -22,7 +23,6 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     PokemonListComponent,
     HeaderComponent,
-    BottonSheetComponent,
     FiltroPokedexPipe
   ],
   imports: [
@@ -33,9 +33,10 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     MatNativeDateModule,
     FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
-  entryComponents:[BottonSheetComponent],
+  entryComponents:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

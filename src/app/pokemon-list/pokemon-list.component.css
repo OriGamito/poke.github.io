@@ -6,7 +6,7 @@
 }
 .pokemon-grid .box{
     width: 100%;
-    height: 300px;
+    height: 400px;
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
     display: grid;
     text-align: center;
@@ -74,3 +74,13 @@
     height: 3%;
     width: 3%;
   }
+
+  pagination-controls{
+    text-align: center;
+  }
+
+  h3, b, p{
+    text-transform: uppercase;
+  }
+
+ 
